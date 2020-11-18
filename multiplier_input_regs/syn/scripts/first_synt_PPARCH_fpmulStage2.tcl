@@ -14,7 +14,7 @@ elaborate FPmul -arch pipeline -lib WORK > ./output_report/elaborate.txt
 uniquify
 link
 
-create_clock -name MY_CLK -period 0.0 clk
+create_clock -name MY_CLK -period 1.7 clk
 set_dont_touch_network MY_CLK
 set_clock_uncertainty 0.07 [get_clocks MY_CLK]
 set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] clk]
