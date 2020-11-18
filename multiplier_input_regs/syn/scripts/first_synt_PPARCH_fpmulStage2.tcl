@@ -10,7 +10,7 @@ analyze -f vhdl -lib WORK ../src/fpmul_stage4_struct.vhd
 analyze -f vhdl -lib WORK ../src/fpmul_pipeline.vhd
 
 set power_preserve_rtl_hier_names true
-elaborate IIR_filter_order2 -arch Structural -lib WORK > ./output_report/elaborate.txt
+elaborate FPmul -arch pipeline -lib WORK > ./output_report/elaborate.txt
 uniquify
 link
 
@@ -26,7 +26,7 @@ ungroup -all -flatten
 set_implementation DW02_mult/pparch [find cell *mult*]
 compile
 
-report_resources >./output_report/repResources_PPARCHstage2.txt
+report_resources > ./output_report/repResources_PPARCHstage2.txt
 report_timing > ./output_report/reportTiming_PPARCHstage2.txt
 report_area > ./output_report/reportArea_PPARCHstage2.txt
 
