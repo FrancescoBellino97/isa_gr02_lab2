@@ -3,7 +3,7 @@
 Report : resources
 Design : FPmul
 Version: O-2018.06-SP4
-Date   : Wed Nov 18 16:40:30 2020
+Date   : Sun Nov 22 15:00:23 2020
 ****************************************
 
 Resource Sharing Report for design FPmul in file

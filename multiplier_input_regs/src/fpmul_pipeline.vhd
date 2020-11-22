@@ -72,8 +72,8 @@ ARCHITECTURE pipeline OF FPmul IS
    SIGNAL isZ_tab_stage1  : std_logic;
    SIGNAL isZ_tab_stage2  : std_logic;
    signal LoadReg: std_logic;
-   signal A_SIG_loaded:std_logic_vector(31 DOWNTO 0);
-   signal B_SIG_loaded: std_logic_vector(31 DOWNTO 0);
+   signal A_loaded:std_logic_vector(31 DOWNTO 0);
+   signal B_loaded: std_logic_vector(31 DOWNTO 0);
 
    -- Component Declarations
    COMPONENT FPmul_stage1
@@ -169,13 +169,14 @@ BEGIN
 
    LoadReg<= '1';
 
-   RegInputFPA: regIn_out PORT MAP (clk,LoadReg,A_SIG,A_SIG_loaded);
-   RegInputFPB: regIn_out PORT MAP (clk,LoadReg,B_SIG,B_SIG_loaded);
+   RegInputFPA: regIn_out PORT MAP (clk,LoadReg,FP_A,A_loaded);
+   RegInputFPB: regIn_out PORT MAP (clk,LoadReg,FP_B,B_loaded);
+
    -- Instance port mappings.
    I1 : FPmul_stage1
       PORT MAP (
-         FP_A            => FP_A,
-         FP_B            => FP_B,
+         FP_A            => A_loaded,
+         FP_B            => B_loaded,
          clk             => clk,
          A_EXP           => A_EXP,
          A_SIG           => A_SIG,
@@ -189,9 +190,9 @@ BEGIN
    I2 : FPmul_stage2
       PORT MAP (
          A_EXP           => A_EXP,
-         A_SIG           => A_SIG_loaded,
+         A_SIG           => A_SIG,
          B_EXP           => B_EXP,
-         B_SIG           => B_SIG_loaded,
+         B_SIG           => B_SIG,
          SIGN_out_stage1 => SIGN_out_stage1,
          clk             => clk,
          isINF_stage1    => isINF_stage1,

@@ -63,10 +63,6 @@ source scripts/first_sim.tcl
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 5 ns  Iteration: 3  Instance: /testbench/UUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 5 ns  Iteration: 3  Instance: /testbench/UUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 5 ns  Iteration: 3  Instance: /testbench/UUT/i2
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 5 ns  Iteration: 4  Instance: /testbench/UUT/i3/i11
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 5 ns  Iteration: 4  Instance: /testbench/UUT/i3/i11
@@ -74,4 +70,11 @@ source scripts/first_sim.tcl
 #    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2
-quit -f
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 15 ns  Iteration: 3  Instance: /testbench/UUT/i2

@@ -7,13 +7,13 @@ Report : timing
         -max_paths 1
 Design : FPmul
 Version: O-2018.06-SP4
-Date   : Wed Nov 18 16:40:33 2020
+Date   : Sun Nov 22 15:00:25 2020
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: RegInputFPB/datoOutput_reg[11]
+  Startpoint: I1/B_SIG_reg[11]
               (rising edge-triggered flip-flop clocked by MY_CLK)
   Endpoint: I2/SIG_in_reg[27]
             (rising edge-triggered flip-flop clocked by MY_CLK)
@@ -28,8 +28,8 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock MY_CLK (rise edge)                                0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  RegInputFPB/datoOutput_reg[11]/CK (DFF_X2)              0.00       0.00 r
-  RegInputFPB/datoOutput_reg[11]/Q (DFF_X2)               0.11       0.11 f
+  I1/B_SIG_reg[11]/CK (DFF_X2)                            0.00       0.00 r
+  I1/B_SIG_reg[11]/Q (DFF_X2)                             0.11       0.11 f
   I2/mult_134/B[11] (FPmul_DW02_mult_1)                   0.00       0.11 f
   I2/mult_134/U2942/ZN (NOR2_X1)                          0.08       0.19 r
   I2/mult_134/U2910/ZN (OAI21_X1)                         0.04       0.23 f
