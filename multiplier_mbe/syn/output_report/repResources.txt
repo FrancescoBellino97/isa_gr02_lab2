@@ -3,7 +3,7 @@
 Report : resources
 Design : FPmul
 Version: O-2018.06-SP4
-Date   : Sun Nov 22 15:51:25 2020
+Date   : Fri Dec 11 12:22:39 2020
 ****************************************
 
 Resource Sharing Report for design FPmul in file
@@ -13,12 +13,15 @@ Resource Sharing Report for design FPmul in file
 |          |              |            | Contained     |                      |
 | Resource | Module       | Parameters | Resources     | Contained Operations |
 ===============================================================================
-| r343     | DW01_add     | width=8    |               | add_1_root_I2/add_126_2 |
-| r347     | DW01_add     | width=8    |               | I3/I9/add_41_aco     |
-| r349     | DW01_inc     | width=25   |               | I3/I11/add_45        |
-| r351     | DW01_add     | width=8    |               | I4/I1/add_41_aco     |
-| r931     | DW_mult_uns  | a_width=32 |               | I2/mult_134          |
-|          |              | b_width=32 |               |                      |
+| r395     | DW01_add     | width=8    |               | add_1_root_I2/add_133_2 |
+| r405     | DW01_add     | width=64   |               | I2/MBE_operation/Result_MBE/add_15 |
+| r407     | DW01_add     | width=8    |               | I3/I9/add_41_aco     |
+| r409     | DW01_inc     | width=25   |               | I3/I11/add_45        |
+| r411     | DW01_add     | width=8    |               | I4/I1/add_41_aco     |
+| r995     | DW01_sub     | width=33   |               | sub_1_root_I2/MBE_operation/Generation_pp_Radix4/Minus_A/add_19_ni |
+| r997     | DW01_inc     | width=33   |               | add_0_root_I2/MBE_operation/Generation_pp_Radix4/Minus_A/add_19_ni |
+| r1581    | DW01_sub     | width=33   |               | sub_1_root_I2/MBE_operation/Generation_pp_Radix4/Minus_2A/add_19_ni |
+| r1583    | DW01_inc     | width=33   |               | add_0_root_I2/MBE_operation/Generation_pp_Radix4/Minus_2A/add_19_ni |
 ===============================================================================
 
 
@@ -27,9 +30,13 @@ Implementation Report
 |                    |                  | Current            | Set            |
 | Cell               | Module           | Implementation     | Implementation |
 ===============================================================================
-| I2/mult_134        | DW_mult_uns      | pparch (area,speed)                 |
-|                    |                  | mult_arch: benc_radix8              |
-| add_1_root_I2/add_126_2               |                    |                |
+| add_0_root_I2/MBE_operation/Generation_pp_Radix4/Minus_2A/add_19_ni         |
+|                    | DW01_inc         | pparch (area,speed)                 |
+| add_0_root_I2/MBE_operation/Generation_pp_Radix4/Minus_A/add_19_ni          |
+|                    | DW01_inc         | pparch (area,speed)                 |
+| I2/MBE_operation/Result_MBE/add_15    |                    |                |
+|                    | DW01_add         | pparch (area,speed)                 |
+| add_1_root_I2/add_133_2               |                    |                |
 |                    | DW01_add         | rpl                |                |
 | I3/I11/add_45      | DW01_inc         | rpl                |                |
 ===============================================================================

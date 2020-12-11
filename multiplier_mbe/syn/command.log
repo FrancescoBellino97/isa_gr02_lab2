@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version O-2018.06-SP4 for linux64 -- Nov 27, 2018
-#@ # Date:   Sun Nov 22 17:10:07 2020
+#@ # Date:   Fri Dec 11 11:54:08 2020
 #@ # Run by: isa02@localhost.localdomain
 #@ 
 
@@ -6628,18 +6628,18 @@ source /software/synopsys/syn_current_64.18/admin/setup/.synopsys_dc.setup
 
 #@ # -- End source /software/synopsys/syn_current_64.18/admin/setup/.synopsys_dc.setup
 
-source /home/isa02/Desktop/Lab2/multiplier_addRegOut/syn/.synopsys_dc.setup
-#@ # -- Starting source /home/isa02/Desktop/Lab2/multiplier_addRegOut/syn/.synopsys_dc.setup
+source /home/isa02/Desktop/Lab2/multiplier_mbe/syn/.synopsys_dc.setup
+#@ # -- Starting source /home/isa02/Desktop/Lab2/multiplier_mbe/syn/.synopsys_dc.setup
 
 #@ define_design_lib WORK -path ./work
 #@ set search_path [list . /software/synopsys/syn_current_64.18/libraries/syn /software/dk/nangate45/synopsys ]
 #@ set link_library [list "*" "NangateOpenCellLibrary_typical_ecsm_nowlm.db" "dw_foundation.sldb" ]
 #@ set target_library [list "NangateOpenCellLibrary_typical_ecsm_nowlm.db" ]
 #@ set synthetic_library [list "dw_foundation.sldb" ]
-#@ # -- End source /home/isa02/Desktop/Lab2/multiplier_addRegOut/syn/.synopsys_dc.setup
+#@ # -- End source /home/isa02/Desktop/Lab2/multiplier_mbe/syn/.synopsys_dc.setup
 
-source scripts/first_synth_compile_ultra.tcl
-#@ # -- Starting source scripts/first_synth_compile_ultra.tcl
+source scripts/first_synt.tcl
+#@ # -- Starting source scripts/first_synt.tcl
 
 #@ analyze -f vhdl -lib WORK ../src/fpnormalize_fpnormalize.vhd
 #@ analyze -f vhdl -lib WORK ../src/fpround_fpround.vhd
@@ -6654,26 +6654,36 @@ source scripts/first_synth_compile_ultra.tcl
 #@ analyze -f vhdl -lib WORK ../src/fpmul_stage3_struct.vhd
 #@ analyze -f vhdl -lib WORK ../src/fpmul_stage4_struct.vhd
 #@ analyze -f vhdl -lib WORK ../src/fpmul_pipeline.vhd
+#@ analyze -f vhdl -lib WORK ../src/changeSign.vhd
+#@ analyze -f vhdl -lib WORK ../src/daddaTree.vhd
+#@ analyze -f vhdl -lib WORK ../src/final_adder.vhd
+#@ analyze -f vhdl -lib WORK ../src/fullAdder.vhd
+#@ analyze -f vhdl -lib WORK ../src/half_adder.vhd
+#@ analyze -f vhdl -lib WORK ../src/MBE_radix4_fullyDaddaTree.vhd
+#@ analyze -f vhdl -lib WORK ../src/mux2to1_32bit.vhd
+#@ analyze -f vhdl -lib WORK ../src/mux4to1_36bit.vhd
+#@ analyze -f vhdl -lib WORK ../src/mux8to1_34bit.vhd
+#@ analyze -f vhdl -lib WORK ../src/mux8to1_35bit.vhd
+#@ analyze -f vhdl -lib WORK ../src/operand_generation.vhd
 #@ 
 #@ set power_preserve_rtl_hier_names true
 #@ elaborate FPmul -arch pipeline -lib WORK > ./output_report/elaborate.txt
 #@ uniquify
 #@ link
 #@ 
-#@ create_clock -name MY_CLK -period 1.6 clk
+#@ create_clock -name MY_CLK -period 1.78 clk
 #@ set_dont_touch_network MY_CLK
 #@ set_clock_uncertainty 0.07 [get_clocks MY_CLK]
-#@ set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] Clk]
+#@ set_input_delay 0.5 -max -clock MY_CLK [remove_from_collection [all_inputs] clk]
 #@ set_output_delay 0.5 -max -clock MY_CLK [all_outputs]
 #@ set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
 #@ set_load $OLOAD [all_outputs]
 #@ 
 #@ ungroup -all -flatten
+#@ compile
 #@ 
-#@ compile_ultra
-#@ 
-#@ report_resources > ./output_report/repResources_compile_ultra.txt
-#@ report_timing > ./output_report/reportTiming_compile_ultra.txt
-#@ report_area > ./output_report/reportArea_compile_ultra.txt
+#@ report_resources > ./output_report/repResources.txt
+#@ report_timing > ./output_report/reportTiming.txt
+#@ report_area > ./output_report/reportArea.txt
 #@ 
 #@ quit

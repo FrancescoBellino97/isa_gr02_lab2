@@ -6,53 +6,6 @@ Running PRESTO HDLC
 Presto compilation completed successfully.
 Elaborated 1 design.
 Current design is now 'FPmul'.
-Information: Building the design 'regIn_out' instantiated from design 'FPmul' with
-	the parameters "N=32". (HDL-193)
-
-Inferred memory devices in process
-	in routine regIn_out_N32 line 16 in file
-		'../src/regIn_out.vhd'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   datoOutput_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
-Information: Building the design 'regOut_Sig' instantiated from design 'FPmul' with
-	the parameters "N=28". (HDL-193)
-
-Inferred memory devices in process
-	in routine regOut_Sig_N28 line 16 in file
-		'../src/regOut_Sig.vhd'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   datoOutput_reg    | Flip-flop |  28   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
-Information: Building the design 'regOut_Exp' instantiated from design 'FPmul' with
-	the parameters "N=8". (HDL-193)
-
-Inferred memory devices in process
-	in routine regOut_Exp_N8 line 16 in file
-		'../src/regOut_Exp.vhd'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   datoOutput_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
-Information: Building the design 'regOut_Sign'. (HDL-193)
-
-Inferred memory devices in process
-	in routine regOut_Sign line 15 in file
-		'../src/regOut_Sign.vhd'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   datoOutput_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
 Information: Building the design 'FPmul_stage1'. (HDL-193)
 
 Inferred memory devices in process
@@ -74,7 +27,7 @@ Presto compilation completed successfully.
 Information: Building the design 'FPmul_stage2'. (HDL-193)
 
 Inferred memory devices in process
-	in routine FPmul_stage2 line 87 in file
+	in routine FPmul_stage2 line 94 in file
 		'../src/fpmul_stage2_struct.vhd'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -86,7 +39,7 @@ Inferred memory devices in process
 ===============================================================================
 
 Inferred memory devices in process
-	in routine FPmul_stage2 line 99 in file
+	in routine FPmul_stage2 line 106 in file
 		'../src/fpmul_stage2_struct.vhd'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
@@ -136,6 +89,9 @@ Inferred memory devices in process
 Presto compilation completed successfully.
 Information: Building the design 'UnpackFP'. (HDL-193)
 Presto compilation completed successfully.
+Information: Building the design 'MBE_radix4_fullyDaddaTree' instantiated from design 'FPmul_stage2' with
+	the parameters "N=32". (HDL-193)
+Presto compilation completed successfully.
 Information: Building the design 'FPnormalize' instantiated from design 'FPmul_stage3' with
 	the parameters "SIG_width=28". (HDL-193)
 Presto compilation completed successfully.
@@ -143,5 +99,70 @@ Information: Building the design 'FPround' instantiated from design 'FPmul_stage
 	the parameters "SIG_width=28". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'PackFP'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'operand_generation' instantiated from design 'MBE_radix4_fullyDaddaTree_N32' with
+	the parameters "N=32". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'daddaTree' instantiated from design 'MBE_radix4_fullyDaddaTree_N32' with
+	the parameters "N=32". (HDL-193)
+Warning:  ../src/daddaTree.vhd:34: The initial value for signal 'layer_1' is not supported for synthesis. Presto ignores it.  (ELAB-130)
+Presto compilation completed successfully.
+Information: Building the design 'final_adder' instantiated from design 'MBE_radix4_fullyDaddaTree_N32' with
+	the parameters "N=64". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'changeSign' instantiated from design 'operand_generation_N32' with
+	the parameters "N=33". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mux4to1_36bit' instantiated from design 'operand_generation_N32' with
+	the parameters "N=36". (HDL-193)
+Warning:  ../src/mux4to1_36bit.vhd:24: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 22 in file
+	'../src/mux4to1_36bit.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'mux8to1_35bit' instantiated from design 'operand_generation_N32' with
+	the parameters "N=35". (HDL-193)
+Warning:  ../src/mux8to1_35bit.vhd:22: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 19 in file
+	'../src/mux8to1_35bit.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            22            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'mux8to1_34bit' instantiated from design 'operand_generation_N32' with
+	the parameters "N=34". (HDL-193)
+Warning:  ../src/mux8to1_34bit.vhd:23: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 20 in file
+	'../src/mux8to1_34bit.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            23            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'mux2to1_32bit' instantiated from design 'operand_generation_N32' with
+	the parameters "N=32". (HDL-193)
+Warning:  ../src/mux2to1_32bit.vhd:19: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 17 in file
+	'../src/mux2to1_32bit.vhd'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'half_adder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'fulladder'. (HDL-193)
 Presto compilation completed successfully.
 1
